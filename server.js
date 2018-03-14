@@ -7,6 +7,7 @@ const through2 = require('through2')
 const ram = require('random-access-memory')
 const toBuffer = require('to-buffer')
 const hypercore = require('hypercore')
+const aliasify = require('aliasify')
 const sheetify = require('sheetify')
 const babelify = require('babelify')
 const reactify = require('reactify')
@@ -112,7 +113,8 @@ const devServer = budo('index.js', {
       brfs,
       sheetify,
       [babelify, {presets: ["env", "react"]}],
-      reactify
+      reactify,
+      [aliasify, {aliases: {"react-native": "react-native-web"}}]
     ]
   },
   middleware: [
