@@ -114,7 +114,10 @@ const devServer = budo('index.js', {
       sheetify,
       [babelify, {presets: ["env", "react"]}],
       reactify,
-      [aliasify, {aliases: {"react-native": "react-native-web"}}]
+      [aliasify, {
+        aliases: {"react-native": "react-native-web"},
+        verbose: true
+      }]
     ]
   },
   middleware: [

@@ -5,7 +5,7 @@ const pump = require('pump')
 const prettyHash = require('pretty-hash')
 const storage = require('random-access-idb')('pp-mini')
 const {AppRegistry} = require('react-native')
-const App = require('./App')
+const App = require('./App').default
 
 require('events').EventEmitter.prototype._maxListeners = 100
 
@@ -265,8 +265,8 @@ function pixelStore (state, emitter) {
   })
 }
 
-AppRegistry.registerComponent('App', () => App);
+AppRegistry.registerComponent('App', () => App)
 
 AppRegistry.runApplication('App', {
   rootTag: document.getElementById('root')
-});
+})
